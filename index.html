@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bow - Creative Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-cream: #FDFBF7;
+            --text-dark: #1E1E1E;
+            --accent-blue: #2A4365;
+            --accent-peach: #FF8A65;
+            --card-bg: #F7F4EB;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-cream); color: var(--text-dark); margin: 0; padding: 0; }
+
+        nav { position: fixed; top: 0; width: 100%; background-color: rgba(253, 251, 247, 0.9); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid #EAE5D9; }
+        .nav-container { max-width: 1100px; margin: 0 auto; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--text-dark); font-weight: 600; position: relative; padding-bottom: 5px; }
+        .nav-links a:hover::after { width: 100%; }
+
+        .hero-section { max-width: 1100px; margin: 160px auto 100px auto; padding: 0 20px; }
+        h1 { font-size: 4rem; font-weight: 800; letter-spacing: -2px; margin-bottom: 30px; }
+
+        /* ปุ่มหลักและปุ่ม Transcript */
+        .btn-group { display: flex; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
+        .cta-btn { display: inline-flex; align-items: center; gap: 10px; background-color: var(--text-dark); color: white; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+        .cta-btn:hover { background-color: var(--accent-peach); transform: translateY(-3px); }
+        
+        .transcript-btn { display: inline-flex; align-items: center; gap: 10px; background-color: transparent; color: var(--text-dark); padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; border: 2px solid var(--text-dark); transition: all 0.3s ease; }
+        .transcript-btn:hover { background-color: var(--text-dark); color: white; transform: translateY(-3px); }
+
+        .portfolio-section { max-width: 1100px; margin: 100px auto; padding: 40px 20px; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .project-card { background-color: var(--card-bg); border-radius: 24px; padding: 40px; border: 1px solid #EAE5D9; transition: all 0.4s ease; display: flex; flex-direction: column; justify-content: space-between; }
+        .project-card:hover { transform: translateY(-10px); border-color: var(--accent-peach); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+
+        .action-link { display: inline-flex; align-items: center; gap: 8px; color: var(--accent-blue); font-weight: 600; text-decoration: none; margin-top: 20px; }
+        .action-link:hover { color: var(--accent-peach); }
+
+        .social-btn { display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background-color: white; color: var(--text-dark); text-decoration: none; border: 1px solid #E2E8F0; font-size: 1.3rem; transition: all 0.3s ease; }
+        .social-btn.fb:hover { background-color: #1877F2; color: white; }
+        .social-btn.ig:hover { background-color: #E1306C; color: white; }
+        .social-btn.tt:hover { background-color: #000000; color: white; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div style="font-weight: 800; font-size: 1.3rem;">BOW.CS</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#projects">Selected Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- หน้าแรก -->
+    <section id="home" class="hero-section">
+        <h1>Hi, I'm Bow. <br>I Create Digital Experience.</h1>
+        <p style="font-size: 1.2rem; max-width: 600px; color: #555; margin-bottom: 40px;">
+            นิสิตวิทยาการคอมพิวเตอร์ผู้รักความครีเอทีฟ ชอบท้าทายตัวเองด้วยการออกแบบระบบที่ฉลาด (Logic) และเข้าใจพฤติกรรมผู้ใช้ผ่านข้อมูลและคอนเทนต์ (Data & UX/UI)
+        </p>
+        
+        <div class="btn-group">
+            <a href="#projects" class="cta-btn">ดูผลงานของฉัน <i class="fas fa-arrow-right"></i></a>
+            <!-- ปุ่มดู Transcript ที่เพิ่มเข้ามาใหม่ -->
+            <a href="ใส่ลิงก์ไฟล์PDFทรานสคริปต์ตรงนี้.pdf" target="_blank" class="transcript-btn"><i class="fas fa-file-invoice"></i> View Transcript (GPAX 3.78)</a>
+        </div>
+    </section>
+
+    <!-- หน้าผลงาน (ดึงตัวตนใหม่มาจัดหมวดหมู่) -->
+    <section id="projects" class="portfolio-section">
+        <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 50px;">Selected Projects</h2>
+        <div class="project-grid">
+            
+            <!-- 1. งานดีไซน์ระบบ -->
+            <div class="project-card">
+                <div>
+                    <div style="font-size: 2.5rem; margin-bottom: 20px;">🔔</div>
+                    <h3>Activity Notification System</h3>
+                    <p style="color: #666; line-height: 1.6;">ออกแบบและพัฒนา UX/UI ระบบแจ้งเตือนกิจกรรมนิสิต ทั้งโมบายแอปและเว็บบอร์ดหลังบ้าน</p>
+                </div>
+                <a href="ลิงก์ฟิกม่า" target="_blank" class="action-link"><i class="fab fa-figma"></i> Open Figma Prototype →</a>
+            </div>
+
+            <!-- 2. ผลงาน TikTok คณะชิ้นที่แมส -->
+            <div class="project-card">
+                <div>
+                    <div style="font-size: 2.5rem; margin-bottom: 20px;">🎬</div>
+                    <h3>Faculty TikTok Content Creator</h3>
+                    <p style="color: #666; line-height: 1.6;">คิดคอนเทนต์ ถ่ายทำ และตัดต่อคลิป TikTok ของคณะ (ดูแลเนื้อหากว่า 60% ของช่อง และรังสรรค์คลิปไวรัลยอดวิวพุ่งกระฉูด)</p>
+                </div>
+                <a href="ใส่ลิงก์คลิปที่แมสที่สุดตรงนี้" target="_blank" class="action-link"><i class="fab fa-tiktok"></i> Watch Viral Video →</a>
+            </div>
+
+            <!-- 3. โปรเจกต์แม่ค้าออนไลน์ -->
+            <div class="project-card">
+                <div>
+                    <div style="font-size: 2.5rem; margin-bottom: 20px;">🛍️</div>
+                    <h3>E-Commerce & Shop Management</h3>
+                    <p style="color: #666; line-height: 1.6;">บริหารจัดการร้านค้าออนไลน์ของตัวเอง ใช้ข้อมูล (Data) วิเคราะห์พฤติกรรมลูกค้า วางแผนการตลาด และออกแบบภาพลักษณ์แบรนด์ให้สะดุดตา</p>
+                </div>
+                <a href="ใส่ลิงก์หน้าร้านออนไลน์ถ้ามี" target="_blank" class="action-link"><i class="fas fa-shopping-bag"></i> Visit My Shop →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- หน้าติดต่อ (ช่องทางส่วนตัว) -->
+    <section id="contact" style="max-width: 1100px; margin: 100px auto; padding: 80px 20px; text-align: center; background-color: #F0EDE4; border-radius: 30px;">
+        <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px;">Let's Connect</h2>
+        <p style="margin-bottom: 40px; color: #555;">ช่องทางติดต่อส่วนตัวของฉัน ทักทายกันมาได้เลยค่ะ</p>
+        
+        <div style="display: flex; gap: 20px; justify-content: center;">
+            <a href="ลิงก์เฟสส่วนตัว" class="social-btn fb"><i class="fab fa-facebook-f"></i></a>
+            <a href="ลิงก์ไอจีส่วนตัว" class="social-btn ig"><i class="fab fa-instagram"></i></a>
+            <a href="ลิงก์ต็อกๆส่วนตัว" class="social-btn tt"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </section>
+
+</body>
+</html>
