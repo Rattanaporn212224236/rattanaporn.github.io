@@ -8,14 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* กำหนดโทนสีน้ำตาล-ครีมละมุนแบบเรซูเม่ */
         :root {
-            --bg-outer: #8B7355;      /* สีน้ำตาลขอบนอก/กรอบเว็บ */
-            --bg-inner: #FDFBF7;      /* สีครีมพื้นหลังเนื้อหาด้านใน */
-            --text-dark: #2C2520;     /* สีน้ำตาลเข้มเกือบดำสำหรับตัวหนังสือ */
-            --accent-orange: #E67E22;  /* สีส้มอิฐตัดเฉดให้ดูครีเอทีฟ */
-            --text-muted: #6E6053;    /* สีน้ำตาลหม่นสำหรับคำอธิบาย */
-            --card-bg: #F7F4EB;       /* สีครีมเข้มขึ้นมาหน่อยสำหรับการ์ดผลงาน */
+            --bg-outer: #E3F8FF;       
+            --bg-inner: #FDFDFD;       
+            --text-dark: #24274C;      
+            --accent-blue: #A7D5F7;    
+            --text-muted: #576574;     
+            --card-bg: #F1F8FF;        
         }
 
         *, *::before, *::after {
@@ -23,27 +22,27 @@
         }
 
         html {
-            scroll-behavior: smooth; /* ลูกเล่นเลื่อนหน้าจอแบบนุ่มนวลเวลาคลิกเมนู */
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Plus Jakarta Sans', 'Sarabun', sans-serif;
-            background-color: var(--bg-outer); /* พื้นหลังนอกสุดทำหน้าที่เป็นขอบเว็บ */
+            background-color: var(--bg-outer);
             margin: 0;
-            padding: 40px 20px; /* ระยะห่างของขอบเว็บ */
+            padding: 40px 20px;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            color: var(--text-dark);
         }
 
-        /* กรอบพื้นหลังหน้าต่างด้านใน ครอบคลุมเนื้อหาทั้งหมด */
         .web-container {
             width: 100%;
             max-width: 1100px;
             background-color: var(--bg-inner);
-            border-radius: 32px; /* ความโค้งของมุมกรอบเว็บ */
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
+            border-radius: 32px;
+            box-shadow: 0 30px 60px rgba(36, 39, 76, 0.1);
             padding: 60px 50px;
             overflow: hidden;
         }
@@ -53,7 +52,7 @@
             display: flex;
             align-items: center;
             gap: 40px;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
         .hero-text-side {
@@ -76,8 +75,8 @@
 
         .job-title {
             font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--accent-orange);
+            font-weight: 700;
+            color: #3498DB; 
             margin: 0 0 30px 0;
             letter-spacing: -0.5px;
         }
@@ -97,53 +96,48 @@
             margin: 0 0 40px 0;
         }
 
-        /* ปุ่มหลักและปุ่ม Transcript */
+        /* 🔘 ปรับปรุงส่วนปุ่ม Group ให้รองรับ 3 ปุ่มเรียงแถวเดียวกันอย่างพอดี */
         .btn-group {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background-color: var(--text-dark);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .cta-btn:hover {
-            background-color: var(--accent-orange);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(230, 126, 34, 0.2);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* แบ่งสัดส่วน 3 ปุ่มเท่ากันเป๊ะๆ */
+            gap: 12px;
+            width: 100%;
+            max-width: 580px; /* คุมความกว้างไม่ให้แผ่กว้างเกินไป */
         }
         
-        .transcript-btn {
+        .profile-btn {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            background-color: transparent;
-            color: var(--text-dark);
-            padding: 16px 32px;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--text-dark);
+            color: white;
+            padding: 14px 10px; /* ลด Padding เล็กน้อยเพื่อให้ไม่เบียดตัวอักษร */
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            border: 2px solid var(--text-dark);
-            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            font-size: 0.9rem; /* ปรับขนาดให้รับกระชับสายตา */
+            white-space: nowrap; /* ล็อกไว้ไม่ให้ตัวหนังสือตัดขึ้นบรรทัดใหม่ */
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 20px rgba(36, 39, 76, 0.15);
         }
 
-        .transcript-btn:hover {
-            background-color: var(--text-dark);
-            color: white;
+        .profile-btn:hover {
+            background-color: #3498DB;
             transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
         }
 
-        /* กรอบรูปภาพของคุณโบว์ */
+        .profile-btn .fa-chevron-down {
+            transition: transform 0.4s ease;
+        }
+        .profile-btn.active .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+
         .profile-img-container {
             width: 100%;
             max-width: 340px;
@@ -151,9 +145,9 @@
             border-radius: 30px;
             overflow: hidden;
             border: 8px solid white;
-            box-shadow: 0 15px 35px rgba(139, 115, 85, 0.15);
+            box-shadow: 0 15px 35px rgba(36, 39, 76, 0.08);
             display: inline-block;
-            background-color: #EFEBE4;
+            background-color: #EBF3F9;
         }
 
         .profile-img-container img {
@@ -162,15 +156,196 @@
             object-fit: cover;
         }
 
+        /* ==================== SECTION ประวัติส่วนตัว (Slide Toggle) ==================== */
+        .toggle-section {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: scaleY(0.95);
+            transform-origin: top;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+                        opacity 0.4s ease, 
+                        transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                        margin-bottom 0.5s ease;
+            margin-bottom: 0;
+        }
+
+        .toggle-section.open {
+            max-height: 2500px; 
+            opacity: 1;
+            transform: scaleY(1);
+            margin-bottom: 50px;
+            padding-top: 20px;
+        }
+
+        .info-section {
+            padding: 40px 0;
+            border-top: 1px solid #E1EDF7;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        .left-profile-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-image-side {
+            width: 100%;
+            height: 460px; 
+            border-radius: 24px;
+            overflow: hidden;
+            border: 6px solid white;
+            box-shadow: 0 15px 35px rgba(36, 39, 76, 0.06);
+            background-color: #EBF3F9;
+        }
+
+        .info-image-side img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bio-box-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .info-tile {
+            background-color: var(--card-bg);
+            padding: 16px 20px;
+            border-radius: 14px;
+            border: 1px solid #D6E6F2;
+        }
+
+        .info-tile-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .info-tile-value {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .inline-tiles {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .right-education-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+            height: 100%;
+        }
+
+        .edu-timeline {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; 
+            flex-grow: 1; 
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+
+        .edu-card {
+            background-color: #FFFFFF;
+            border: 1px solid #E1EDF7;
+            padding: 22px 24px; 
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(36, 39, 76, 0.02);
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .edu-year {
+            display: inline-block;
+            background-color: var(--text-dark);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+
+        .edu-card h4 {
+            margin: 0 0 6px 0;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+        }
+
+        .edu-card p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .inner-transcript-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: transparent;
+            color: var(--text-dark);
+            padding: 16px;
+            border: 2px dashed var(--text-dark);
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            width: 100%;
+        }
+
+        .inner-transcript-btn:hover {
+            background-color: var(--text-dark);
+            color: white;
+            border-style: solid;
+        }
+
         /* ==================== PORTFOLIO SECTION ==================== */
         .portfolio-section {
             padding: 60px 0;
-            border-top: 1px solid #EAE5D9;
+            border-top: 1px solid #E1EDF7;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            color: var(--text-dark);
+        }
+
+        .subsection-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin: 40px 0 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-left: 4px solid var(--accent-blue);
+            padding-left: 12px;
         }
 
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
@@ -178,7 +353,7 @@
             background-color: var(--card-bg);
             border-radius: 24px;
             padding: 35px;
-            border: 1px solid #EAE5D9;
+            border: 1px solid #D6E6F2;
             transition: all 0.4s ease;
             display: flex;
             flex-direction: column;
@@ -186,39 +361,109 @@
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-orange);
-            box-shadow: 0 20px 40px rgba(139, 115, 85, 0.1);
+            transform: translateY(-8px);
+            border-color: #3498DB;
+            box-shadow: 0 20px 40px rgba(36, 39, 76, 0.05);
         }
 
         .project-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             color: var(--text-dark);
             margin: 0 0 15px 0;
         }
 
-        .action-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--bg-outer);
-            font-weight: 600;
-            text-decoration: none;
-            margin-top: 25px;
-            transition: color 0.2s;
+        .project-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
         }
 
-        .action-link:hover {
-            color: var(--accent-orange);
+        .card-btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .action-link-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: white;
+            color: var(--text-dark);
+            padding: 10px 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            border: 1px solid #D6E6F2;
+            transition: all 0.2s ease;
+        }
+
+        .action-link-btn:hover {
+            background-color: var(--text-dark);
+            color: white;
+            border-color: var(--text-dark);
+        }
+
+        /* ==================== SOFT SKILLS SECTION ==================== */
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .skill-row {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 24px;
+            border: 1px solid #D6E6F2;
+        }
+
+        .skill-text-content {
+            flex: 1;
+        }
+
+        .skill-text-content h4 {
+            font-size: 1.25rem;
+            color: var(--text-dark);
+            margin: 0 0 10px 0;
+        }
+
+        .skill-text-content p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .skill-img-holder {
+            width: 120px;
+            height: 120px;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #EBF3F9;
+            flex-shrink: 0;
+        }
+
+        .skill-img-holder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* ==================== CONTACT SECTION ==================== */
         .contact-section {
             padding: 60px 40px;
             text-align: center;
-            background-color: #F0EDE4;
+            background-color: #EBF3F9;
             border-radius: 24px;
-            margin-top: 40px;
+            margin-top: 50px;
         }
 
         .contact-section h2 {
@@ -236,25 +481,33 @@
             background-color: white;
             color: var(--text-dark);
             text-decoration: none;
-            border: 1px solid #E2E8F0;
+            border: 1px solid #D6E6F2;
             font-size: 1.3rem;
             transition: all 0.3s ease;
         }
 
-        /* ลูกเล่นปุ่มโซเชียลตอนเมาส์ชี้แยกสีแบรนด์ชัดเจน */
         .social-btn.fb:hover { background-color: #1877F2; color: white; border-color: #1877F2; transform: translateY(-5px); }
         .social-btn.ig:hover { background-color: #E1306C; color: white; border-color: #E1306C; transform: translateY(-5px); }
         .social-btn.tt:hover { background-color: #000000; color: white; border-color: #000000; transform: translateY(-5px); }
+        .social-btn.em:hover { background-color: #3498DB; color: white; border-color: #3498DB; transform: translateY(-5px); }
+        .social-btn.ph:hover { background-color: #3498DB; color: white; border-color: #3498DB; transform: translateY(-5px); }
 
-        /* ==================== RESPONSIVE ==================== */
         @media (max-width: 768px) {
             body { padding: 15px; }
-            .web-container { padding: 40px 20px; border-radius: 24px; }
-            .hero-layout { flex-direction: column; text-align: center; gap: 30px; }
+            .web-container { padding: 40px 24px; border-radius: 24px; }
+            .hero-layout { flex-direction: column; align-items: flex-start; text-align: left; gap: 30px; }
             .main-title { font-size: 3.2rem; }
-            .btn-group { justify-content: center; }
-            .profile-img-container { height: 340px; }
-            .contact-section { padding: 40px 20px; }
+            
+            /* ด้านล่างเป็นหน้าจอมือถือจะปรับให้ไหลลงมาแนวตั้งเพื่อความสวยงามและไม่ล้นจอ */
+            .btn-group { grid-template-columns: 1fr; width: 100%; max-width: 100%; }
+            
+            .profile-img-container { height: 340px; width: 100%; max-width: 100%; }
+            .info-grid { grid-template-columns: 1fr; gap: 30px; }
+            .info-image-side { height: 380px; }
+            .skill-row { flex-direction: column-reverse; align-items: flex-start; gap: 15px; }
+            .skill-img-holder { width: 100%; height: 160px; }
+            .contact-section { padding: 40px 20px; text-align: left; }
+            .contact-section div { justify-content: flex-start !important; }
         }
     </style>
 </head>
@@ -278,71 +531,187 @@
                 </p>
 
                 <div class="btn-group">
-                    <a href="#projects" class="cta-btn">ดูผลงานของฉัน <i class="fas fa-arrow-right"></i></a>
-                    <a href="Transcript-eng.pdf" target="_blank" class="transcript-btn">
-                        <i class="fas fa-file-invoice"></i> View Transcript (GPAX 3.78)
+                    <button class="profile-btn" onclick="toggleProfile()" id="profileTrigger">
+                        <i class="fas fa-user-circle"></i> ประวัติส่วนตัว <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                    </button>
+                    <a href="#projects" class="profile-btn">
+                        <i class="fas fa-layer-group"></i> Selected Projects
+                    </a>
+                    <a href="#soft-skills" class="profile-btn">
+                        <i class="fas fa-star"></i> Soft Skills
                     </a>
                 </div>
             </div>
 
             <div class="hero-image-side">
                 <div class="profile-img-container">
-                    <img src="profile.jpg" alt="Rattanaporn Sirifong">
+                    <img src="P1.jpg" alt="Rattanaporn Sirifong">
                 </div>
             </div>
         </div>
 
-        <section id="projects" class="portfolio-section">
-            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 50px; color: var(--text-dark);">Selected Projects</h2>
-            <div class="project-grid">
+        <div id="profileSection" class="toggle-section">
+            <section class="info-section">
+                <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 30px; color: var(--text-dark);">About Me & Education</h2>
                 
+                <div class="info-grid">
+                    <div class="left-profile-column">
+                        <div class="info-image-side">
+                            <img src="P2.jpg" alt="Rattanaporn Sirifong Profile">
+                        </div>
+                        <div class="bio-box-group">
+                            <div class="info-tile">
+                                <div class="info-tile-label"><i class="fas fa-id-card"></i> ชื่อ-นามสกุล</div>
+                                <div class="info-tile-value">นางสาว รัตนาภรณ์ ศิริฟอง</div>
+                            </div>
+                            <div class="inline-tiles">
+                                <div class="info-tile">
+                                    <div class="info-tile-label"><i class="fas fa-smile"></i> ชื่อเล่น</div>
+                                    <div class="info-tile-value">โบว์</div>
+                                </div>
+                                <div class="info-tile">
+                                    <div class="info-tile-label"><i class="fas fa-birthday-cake"></i> วันเกิด</div>
+                                    <div class="info-tile-value">11 กุมภาพันธ์ 2547</div>
+                                </div>
+                            </div>
+                            <div class="inline-tiles">
+                                <div class="info-tile">
+                                    <div class="info-tile-label"><i class="fas fa-hourglass-half"></i> อายุ</div>
+                                    <div class="info-tile-value">22 ปี</div>
+                                </div>
+                                <div class="info-tile" style="background-color: #E6F4EA; border-color: #B7E1CD;">
+                                    <div class="info-tile-label" style="color: #137333;"><i class="fas fa-graduation-cap"></i> GPAX สะสม</div>
+                                    <div class="info-tile-value" style="color: #137333;">3.78</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right-education-column">
+                        <div class="edu-timeline">
+                            <div class="edu-card">
+                                <div class="edu-year">2560 - 2562</div>
+                                <h4>ระดับมัธยมศึกษาตอนต้น</h4>
+                                <p><strong>โรงเรียนเต่างอยพัฒนาศึกษา</strong><br>สพม. สกลนคร เขต 1</p>
+                            </div>
+                            <div class="edu-card">
+                                <div class="edu-year">2563 - 2565</div>
+                                <h4>ระดับมัธยมศึกษาตอนปลาย</h4>
+                                <p><strong>โรงเรียนสกลทวาปี</strong><br>สังกัดองค์การบริหารส่วนจังหวัดสกลนคร<br>แผนการเรียน: วิทยาศาสตร์ - คณิตศาสตร์</p>
+                            </div>
+                            <div class="edu-card" style="border-left: 4px solid #3498DB;">
+                                <div class="edu-year" style="background-color: #3498DB;">2566 - ปัจจุบัน</div>
+                                <h4>ระดับปริญญาตรี (ชั้นปีที่ 4)</h4>
+                                <p><strong>มหาวิทยาลัยเกษตรศาสตร์</strong><br>วิทยาเขตเฉลิมพระเกียรติ จังหวัดสกลนคร<br>สาขา: วิทยาการคอมพิวเตอร์</p>
+                            </div>
+                        </div>
+                        <a href="Transcript-eng.pdf" target="_blank" class="inner-transcript-btn">
+                            <i class="fas fa-file-alt"></i> คลิกดูใบทรานสคริปต์ (Transcript)
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section id="projects" class="portfolio-section">
+            <h2 class="section-title">Selected Projects</h2>
+            
+            <div class="subsection-title">Core Computer Projects</div>
+            <div class="project-grid" style="margin-bottom: 50px;">
                 <div class="project-card">
                     <div>
-                        <div style="font-size: 2.5rem; margin-bottom: 20px;">🔔</div>
-                        <h3>Activity Notification System</h3>
-                        <p style="color: #666; line-height: 1.6;">ออกแบบและพัฒนา UX/UI ระบบแจ้งเตือนกิจกรรมนิสิต ทั้งโมบายแอปและเว็บบอร์ดหลังบ้าน</p>
+                        <div style="font-size: 2.2rem; margin-bottom: 15px;">🔔</div>
+                        <h3>Event Notification System</h3>
+                        <p>ออกแบบและพัฒนา UX/UI ระบบแจ้งเตือนกิจกรรมนิสิต ทั้งโมบายแอปพลิเคชันและเว็บบอร์ดสำหรับผู้ดูแลระบบหลังบ้าน</p>
                     </div>
-                    <a href="ลิงก์ฟิกม่า" target="_blank" class="action-link"><i class="fab fa-figma"></i> Open Figma Prototype →</a>
+                    <div class="card-btn-group">
+                        <a href="https://www.figma.com/proto/5UqCFrVpL7x8x3x8x8/Event-App?node-id=1-2&scaling=scale-down" target="_blank" class="action-link-btn"><i class="fas fa-info-circle"></i> คำอธิบายโดยย่อ</a>
+                        <a href="https://www.figma.com/design/Pz7OwF3DhD46cVw6K4WWcc/Untitled?node-id=0-1&m=dev&t=TCdd8T2Fn0amTf6p-1" target="_blank" class="action-link-btn"><i class="fab fa-figma"></i> Figma MobileApp</a>
+                        <a href="https://www.figma.com/design/Pz7OwF3DhD46cVw6K4WWcc/Untitled?node-id=186-3362&m=dev&t=TCdd8T2Fn0amTf6p-1" target="_blank" class="action-link-btn"><i class="fab fa-figma"></i> Figma WebApp</a>
+                    </div>
                 </div>
 
                 <div class="project-card">
                     <div>
-                        <div style="font-size: 2.5rem; margin-bottom: 20px;">🎬</div>
-                        <h3>Faculty TikTok Content Creator</h3>
-                        <p style="color: #666; line-height: 1.6;">คิดคอนเทนต์ ถ่ายทำ และตัดต่อคลิป TikTok ของคณะ (ดูแลเนื้อหากว่า 60% ของช่อง และรังสรรค์คลิปไวรัลยอดวิวพุ่งกระฉูด)</p>
+                        <div style="font-size: 2.2rem; margin-bottom: 15px;">🛍️</div>
+                        <h3>E-Commerce System</h3>
+                        <p>มินิโปรเจกต์พัฒนาระบบร้านค้าออนไลน์ จำลองการซื้อขาย โครงสร้างฐานข้อมูล และส่วนการจัดการสถานะคำสั่งซื้อ</p>
                     </div>
-                    <a href="ใส่ลิงก์คลิปที่แมสที่สุดตรงนี้" target="_blank" class="action-link"><i class="fab fa-tiktok"></i> Watch Viral Video →</a>
+                    <div class="card-btn-group">
+                        <a href="#อธิบายหน้าตาและการใช้งาน" class="action-link-btn"><i class="fas fa-desktop"></i> อธิบายหน้าตาและการใช้งาน (มีรูปประกอบ)</a>
+                    </div>
                 </div>
 
                 <div class="project-card">
                     <div>
-                        <div style="font-size: 2.5rem; margin-bottom: 20px;">🛍️</div>
-                        <h3>E-Commerce & Shop Management</h3>
-                        <p style="color: #666; line-height: 1.6;">บริหารจัดการร้านค้าออนไลน์ของตัวเอง ใช้ข้อมูล (Data) วิเคราะห์พฤติกรรมลูกค้า วางแผนการตลาด และออกแบบภาพลักษณ์แบรนด์ให้สะดุดตา</p>
+                        <div style="font-size: 2.2rem; margin-bottom: 15px;">🦮</div>
+                        <h3>Chatbot Golden Retriever</h3>
+                        <p>พัฒนาแชทบอทอัจฉริยะเพื่อให้ข้อมูลและตอบคำถามเกี่ยวกับสุนัขสายพันธุ์โกลเดน รีทรีฟเวอร์ ได้อย่างถูกต้องและรวดเร็ว</p>
                     </div>
-                    <a href="ใส่ลิงก์หน้าร้านออนไลน์ถ้ามี" target="_blank" class="action-link"><i class="fas fa-shopping-bag"></i> Visit My Shop →</a>
+                    <div class="card-btn-group">
+                        <a href="#อธิบายการทำงานบอท" class="action-link-btn"><i class="fas fa-cogs"></i> อธิบายการทำงาน</a>
+                        <a href="#แสกนคิวอาร์โค้ด" class="action-link-btn"><i class="fas fa-qrcode"></i> Scan QR Code เพื่อทดลองใช้งาน</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="soft-skills" class="subsection-title">My Soft Skills & Passion</div>
+            <div class="skill-list">
+                <div class="skill-row">
+                    <div class="skill-text-content">
+                        <h4>1. การคิดวิเคราะห์และการวางแผนเชิงระบบ (Strategic Planning)</h4>
+                        <p>ชอบการจัดระเบียบตรรกะ วางขั้นตอนกระบวนการทำงานอย่างเป็นระบบ เพื่อให้ได้ชิ้นงานที่มีประสิทธิภาพ ตอบโจทย์ผู้ใช้งานและเป้าหมายอย่างแม่นยำ</p>
+                    </div>
+                    <div class="skill-img-holder">
+                        <img src="planning-skill.png" alt="Planning Skill">
+                    </div>
                 </div>
 
+                <div class="skill-row">
+                    <div class="skill-text-content">
+                        <h4>2. ครีเอเตอร์สายคอนเทนต์ (TikTok Content Creator)</h4>
+                        <p>คิดคอนเทนต์ ถ่ายทำ และตัดต่อคลิป TikTok ของคณะ ดูแลเนื้อหากกว่า 60% ของช่อง และรังสรรค์คลิปไวรัลที่ดึงดูดความสนใจจากผู้ชมได้อย่างล้นหลาม</p>
+                    </div>
+                    <div class="skill-img-holder">
+                        <img src="content-skill.png" alt="Content Creator Skill">
+                    </div>
+                </div>
+
+                <div class="skill-row">
+                    <div class="skill-text-content">
+                        <h4>3. การบริหารจัดการธุรกิจออนไลน์ (E-Commerce & Shop Management)</h4>
+                        <p>บริหารจัดการร้านค้าออนไลน์ของตัวเอง ใช้ข้อมูล (Data) วิเคราะห์พฤติกรรมลูกค้า วางแผนกลยุทธ์การตลาด และออกแบบภาพลักษณ์แบรนด์ให้สะดุดตาติดตลาด</p>
+                    </div>
+                    <div class="skill-img-holder">
+                        <img src="ecommerce-skill.png" alt="E-commerce Business Skill">
+                    </div>
+                </div>
             </div>
         </section>
 
         <section id="contact" class="contact-section">
             <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px;">Let's Connect</h2>
-            <p style="margin-bottom: 40px; color: #555;">ช่องทางติดต่อส่วนตัวของฉัน ทักทายกันมาได้เลยค่ะ</p>
+            <p style="margin-bottom: 40px; color: #555;">ช่องทางติดต่อส่วนตัวของฉัน ทักทายหรือติดต่อสัมภาษณ์งานมาได้เลยค่ะ</p>
             
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
                 <a href="https://www.facebook.com/rat.na.ph.rn.siri.fxng?" target="_blank" class="social-btn fb"><i class="fab fa-facebook-f"></i></a>
-                
                 <a href="https://www.instagram.com/bxwttn_?igsh=NXlpeWdvcHlpYXE2&utm_source=qr" target="_blank" class="social-btn ig"><i class="fab fa-instagram"></i></a>
-                
                 <a href="https://www.tiktok.com/@bxw_2xx4?_r=1&_t=ZS-97UnbIRemI9" target="_blank" class="social-btn tt"><i class="fab fa-tiktok"></i></a>
-
-                <a href="mailto:Rattanaporn.sir@ku.th" class="social-btn em" style="transition: all 0.3s ease;"><i class="fas fa-envelope"></i></a>
-
-                <a href="tel:0961902874" class="social-btn ph" style="transition: all 0.3s ease;"><i class="fas fa-phone"></i></a>
+                <a href="mailto:Rattanaporn.sir@ku.th" class="social-btn em"><i class="fas fa-envelope"></i></a>
+                <a href="tel:0961902874" class="social-btn ph"><i class="fas fa-phone"></i></a>
             </div>
         </section>
     </div>
+
+    <script>
+        function toggleProfile() {
+            const section = document.getElementById('profileSection');
+            const button = document.getElementById('profileTrigger');
+            
+            section.classList.toggle('open');
+            button.classList.toggle('active');
+        }
+    </script>
 
 </body>
 </html>
